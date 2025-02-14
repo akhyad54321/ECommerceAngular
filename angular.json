@@ -62,7 +62,8 @@
               "buildTarget": "angular-ecommerce:build:production"
             },
             "development": {
-              "buildTarget": "angular-ecommerce:build:development"
+              "buildTarget": "angular-ecommerce:build:development",
+              "port": 4250
             }
           },
           "defaultConfiguration": "development"
