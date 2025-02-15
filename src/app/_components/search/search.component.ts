@@ -3,7 +3,7 @@ import { ProductService } from '../../_service/product.service';
 import { Product } from '../../_model/product';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Router, RouterEvent, RouterLink, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterEvent, RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -15,12 +15,23 @@ export class SearchComponent implements OnInit{
 
   nameValue: string ='';
   productData: Product[] = [];
+  searchMode: boolean = false;
 
-  constructor(private productService : ProductService){
 
-  }
+  constructor(private productService : ProductService,
+     private router: Router, private route: ActivatedRoute) {
+
+   }
+
   ngOnInit(): void {
 
   }
 
+  doSearch(){
+    const nameValue = this.nameValue;
+    console.log("nameValue = " + nameValue);
+    this.router.navigateByUrl(`/search/${nameValue}`)
+  }
+
 }
+

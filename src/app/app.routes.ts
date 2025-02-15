@@ -6,7 +6,7 @@ import { SearchComponent } from './_components/search/search.component';
 export const routes: Routes = [
     {
         path: 'search/:keyword',
-        component: SearchComponent,
+        component: ProductListComponent,
     },
     {
         path: 'category/:id',

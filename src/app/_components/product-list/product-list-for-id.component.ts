@@ -16,7 +16,8 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 export class ProductListComponent implements OnInit {
   productData: Product[] = [];
   currentCategoryId: number = 1;
-  searchMode: boolean = false;
+
+  // productService = inject(ProductService);
 
   constructor(private productService: ProductService,
                private route: ActivatedRoute) {
@@ -29,36 +30,23 @@ export class ProductListComponent implements OnInit {
   }
 
   getProductList() {
-    this.searchMode = this.route.snapshot.paramMap.has('keyword');
-    console.log("searchMode = " + this.searchMode)
-    if(this.searchMode){
-        this.handleSearchProducts();
-    }else{
-      this.handleListProducts();
-    }
-  }
 
-  handleSearchProducts(){
-    const theKeyword: string = this.route.snapshot.paramMap.get('keyword')!;
-    console.log("theKeyword = " + theKeyword)
-    this.productService.getProductListBySearch(theKeyword).subscribe(result =>{
-      this.productData = result;
-    });
-
-  }
-
-  handleListProducts(){
+    // check if "id" parameter is available or not
    const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
 
    if(hasCategoryId){
-    this.currentCategoryId = +this.route.snapshot.paramMap.get('id')!;
+    // get the "id" param String. Convert string to a number using the "+" symbol
+    this.currentCategoryId = +this.route.snapshot.paramMap.get('id')!; //(+) this plus sign has been used to convert string value to number value:
    }
    else{
+    // if not categoryId available.... set default categoryId as 1
     this.currentCategoryId = 1;
    }
 
+  //  now get the products for the given category id
     this.productService.getProductList(this.currentCategoryId).subscribe(data => {
       this.productData = data;
+      // console.log(this.productData);
     }, error => {
       console.log(error.status); // Example: 404
       console.log(error.statusText); // Example: "Not Found"
