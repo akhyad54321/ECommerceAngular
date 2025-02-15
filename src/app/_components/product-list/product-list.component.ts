@@ -3,7 +3,7 @@ import { ProductService } from './../../_service/product.service';
 import { Component, inject, OnInit } from '@angular/core';
 import { Product } from '../../_model/product';
 import { CommonModule, CurrencyPipe, IMAGE_CONFIG, IMAGE_LOADER } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -47,7 +47,7 @@ export class ProductListComponent implements OnInit {
   //  now get the products for the given category id
     this.productService.getProductList(this.currentCategoryId).subscribe(data => {
       this.productData = data;
-      console.log(this.productData);
+      // console.log(this.productData);
     }, error => {
       console.log(error.status); // Example: 404
       console.log(error.statusText); // Example: "Not Found"
