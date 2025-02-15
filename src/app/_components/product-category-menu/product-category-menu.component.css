@@ -1,0 +1,45 @@
+/* Sidebar container */
+.menu-sidebar-content {
+    background-color: #f8f9fa; /* Light background for the sidebar */
+    width: 250px; /* Fixed width for the sidebar */
+    height: 100vh; /* Full height of the viewport */
+    padding: 20px; /* Padding around the content */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+/* Navbar styling */
+.navbar-sidebar {
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Vertical alignment */
+}
+
+/* List styles */
+.navbar-list {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Remove padding */
+}
+
+/* List item styles */
+.navbar-list li {
+    margin: 10px 0; /* Spacing between items */
+}
+
+/* Link styles */
+.navbar-list a {
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Dark text color */
+    padding: 10px 15px; /* Padding for each link */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Active link style */
+.navbar-list a.active-link {
+    background-color: #007bff; /* Background color for active link */
+    color: white; /* Text color for active link */
+}
+
+/* Hover effect */
+.navbar-list a:hover {
+    background-color: #e2e6ea; /* Background color on hover */
+}
