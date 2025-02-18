@@ -7,19 +7,57 @@
                 <div *ngFor="let item of productData" class="col-md-3">
 
                     <div class="product-box">
-                        <img src="{{ item.imageUrl }}" class="img-responsive">
-                        <h1>{{ item.name }}</h1>
+                        <a routerLink="/products/{{ item.id }}">
+                            <img src="{{ item.imageUrl }}" class="img-responsive">
+                        </a>
+                        <a routerLink="/products/ {{ item.id}}">
+                            <h1>{{ item.name }}</h1>
+                        </a>
                         <div class="price">{{ item.unitPrice | currency:'USD' }}</div>
-                        <a href="#" class="primary-btn">Add to cart</a>
+                        <button href="#" (click)="addToCart(item)" class="btn btn-primary btn-sm">Add to cart</button>
                     </div>
-
                 </div>
 
                 <!-- if products are empty, then display a message -->
-                 <div *ngIf="productData.length === 0" class="alert alert-warning col-md-12" role="alert">
+                <div *ngIf="productData?.length === 0" class="alert alert-warning col-md-12" role="alert">
                     No Products Found!!!
-                 </div>
+                </div>
             </div>
+            <!-- begin footer: i.e pagination code:// Step: 5 add pagination variables in .html page: -->
+            <!-- begin footer -->
+            <div class="footer-pagination">
+                <div class="row">
+                    <div class="col-md-6"></div>
+
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-9" style="padding-left: 30%">
+
+                                <ngb-pagination 
+                                    [(page)]="thePageNumber" 
+                                    [pageSize]="thePageSize"
+                                    [collectionSize]="theTotalElements" 
+                                    [maxSize]="3" 
+                                    [boundaryLinks]="true"
+                                    (pageChange)="getProductList()">
+                                </ngb-pagination>
+
+                            </div>
+                            <div class="col-md-3 mt-2" style="text-align: right;">
+                                <span class="ml-2">Page Size</span>
+                                <select [(ngModel)]="thePageSize" (change)="getProductList()">
+                                    <option selected="true">5</option>
+                                    <option>10</option>
+                                    <option>15</option>
+                                    <option>20</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- end footer -->
         </div>
     </div>
 </div>

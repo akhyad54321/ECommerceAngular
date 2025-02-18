@@ -7,7 +7,7 @@ import { ActivatedRoute, Router, RouterEvent, RouterLink, RouterModule } from '@
 
 @Component({
   selector: 'app-search',
-  imports: [FormsModule, CommonModule, RouterModule, RouterLink ],
+  imports: [FormsModule, CommonModule, RouterModule ],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
