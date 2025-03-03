@@ -54,7 +54,7 @@ export class ProductService {
 
     const productUrl = `${this.baseUrl}/search/findByCategoryId?id=${theProductId}&page=${thePage}&size=${thePageSize}`
     //NOTE: This url type should be formed : ===> http://localhost:8080/api/products?page=0&size=20 // http://localhost:8080/api/products/3&page=0&size=10}
-    console.log("GaneshaaproductUrl = " + productUrl)
+    // console.log("GaneshaaproductUrl = " + productUrl)
     return this.http.get<GetResponsePagination>(productUrl).pipe(// above and this method, op is same 
       map(response => response) // Step 3 is in product.list.component.ts
     )

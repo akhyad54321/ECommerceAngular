@@ -3,9 +3,15 @@
     <!-- MENU SIDEBAR-->
     <aside class="menu-sidebar d-none d-lg-block">
       <div class="logo">
-        <a href="#">
+        <a routerLink="/products">
           <img src="assets/images/products/logo.png" height="100" width="100" alt="luv2shop" class="img-responsive">
         </a>
+        <!-- <a routerLink="/add-emp">
+          <img src="assets/images/products/hanuman.png" height="100" width="100" alt="luv2shop" class="img-responsive">
+      </a> -->
+      <button (click)="onSubmit()">
+        <img src="assets/images/products/hanuman.png" height="100" width="100" alt="luv2shop" class="img-responsive">
+      </button>
       </div>
       <app-product-category-menu></app-product-category-menu>
     </aside>

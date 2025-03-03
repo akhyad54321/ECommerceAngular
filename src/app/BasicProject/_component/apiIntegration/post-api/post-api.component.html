@@ -1,0 +1,70 @@
+<app-alert [alertType]="'Success'" [message]="'This is Post Page'"></app-alert>
+<div class="row pt-2">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-secondary text-white">
+                Department List
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Sr No</th>
+                                    <th>Name</th>
+                                    <th>Logo</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- @for (item of deptList; track $index) {
+                                <tr>
+                                    <td>{{$index+1}} </td>
+                                    <td>{{item.departmentName}}</td>
+                                    <td>{{item.departmentLogo}}</td>
+                                </tr>
+                                } -->
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-secondary text-white">
+                New Department
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <label for="">Document Name</label>
+                        <input type="text" [(ngModel)]="documentObj.documentName" class="form-control" name="documentName" placeholder="Enter Document Name">
+                    </div>
+                    <div class="col-12">
+                        <label for="">Description</label>
+                        <input type="text" [(ngModel)]="documentObj.description" class="form-control" name="description" placeholder="Enter Description">
+                    </div>
+                </div>
+                <div class="row pt-3">
+                    <div class="col-6 text-center">
+                        <button class="btn btn-secondary">Reset</button>
+                        <button class="btn btn-success" (click)="onSave()">Save </button>
+                    </div>
+                    <div class="col-6 text-center"> 
+                        <!-- @if(deptObj.departmentId == 0) {
+                            <button class="btn btn-success" (click)="onSave()">Save </button>
+                        }@else {
+                            <button class="btn btn-warning" (click)="onUpdate()">Update </button>
+                        }  -->
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

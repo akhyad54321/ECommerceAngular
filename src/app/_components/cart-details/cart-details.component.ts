@@ -3,10 +3,11 @@ import { CartItem } from '../../_model/cart-item';
 import { CartService } from '../../_service/cart.service';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-cart-details',
-  imports: [CommonModule, FormsModule, CurrencyPipe],
+  imports: [CommonModule, FormsModule, CurrencyPipe, RouterLink],
   templateUrl: './cart-details.component.html',
   styleUrl: './cart-details.component.css'
 })

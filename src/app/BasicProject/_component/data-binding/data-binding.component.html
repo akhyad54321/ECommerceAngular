@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col4">
+        One way dat binding : Interpolation
+    </div>
+    <div class="col4">
+
+    </div>
+    <div class="col4">
+
+    </div>
+
+    <div class="col4">
+        <div class="row">
+            Interpolation:
+            <h2>{{courseName}}</h2>
+            <h2>{{isIndian}}</h2>
+            <h2>{{currentDate}}</h2>
+            <h2>{{rollNo}}</h2>
+            <input type="{{inputType1}}" value="{{courseName}}" placeholder="Hello Ganeshaa" />
+        </div>
+
+        <div class="row">
+            Property Binding:
+            <div class="{{myClassName}}">Danger</div>
+            <div [class]="myClassName">Danger 1</div>
+            <input type="{{inputType}}" value="{{courseName}}" placeholder="Hello Ganeshaa">
+            <input [type]="inputType1" [value]="courseName" [placeholder]="rollNo">
+        </div>
+        <div class="col4">
+            <button class="btn btn-success" (click)="changeCourseName()">Change Course</button>
+        </div>
+    </div>
+    <div class="col4">
+        <div class="row">
+            <div class="btn btn-success" (click)="printMusic('Welcome Ganeshaa!!!')">Submit</div>
+            <div class="btn btn-success" (click)="showAlert()">RESET</div>
+            <span (click)="printMusic('This is clickMe message ')">Click Me</span>
+        </div>
+    </div>
+    <div class="col4">
+        <!-- TWO way binding using ngModel-->
+         <input type="text" [(ngModel)]="courseName" /> - {{courseName}}<br>
+         <input type="checkbox" [(ngModel)]="isIndian"/>
+    </div>
+</div>

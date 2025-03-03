@@ -76,4 +76,27 @@ export class CartService {
     console.log(`totalPrice: ${totalPriceValue.toFixed(2)}, totalQuantity: ${totalQuantityValue}`);
     console.log('----');
   }
+
+  decreaseQuantity(theCartItem: CartItem){
+    theCartItem.quantity--;
+  
+    if(theCartItem.quantity == 0){
+      this.remove(theCartItem);
+    }else{
+      this.computeCartTotals();
+    }
+  }
+
+  remove(theCartItem: CartItem){
+    // get the index of item in the array
+    const itemindex = this.cartItems.findIndex(item => item.id == theCartItem.id);
+
+    // if NotFoundError, remove the item from the array at the given index
+    if(itemindex > -1){
+      this.cartItems.splice(itemindex, 1);// .splice()=> it is inbuild method, which removes one item from array:
+      this.computeCartTotals();
+    }
+  }
+
+
 }
