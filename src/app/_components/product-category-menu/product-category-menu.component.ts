@@ -15,7 +15,6 @@ export class ProductCategoryMenuComponent implements OnInit {
   productCategories: ProductCategory[] = [];
 
   constructor(private productService: ProductService){
-
   }
 
   ngOnInit(): void {
@@ -26,7 +25,7 @@ export class ProductCategoryMenuComponent implements OnInit {
     this.productService.getProductCategoryList().subscribe( data => {
       this.productCategories = data;
       // debugger;
-      // console.log("Product Categories = " + JSON.stringify(data));
+      console.log("Product Categories = " + JSON.stringify(data));
     }, error => {
       console.log(error.status); // Example: 404
       console.log(error.statusText); // Example: "Not Found"
